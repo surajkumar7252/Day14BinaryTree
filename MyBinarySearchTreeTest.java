@@ -9,7 +9,7 @@ public class MyBinarySearchTreeTest
    
     @Test
   
-    	public void givenThreeNumbersWhenAddedToBInaryTreeShouldHaveSizeThree() {
+    	public void inseringFourElements_shouldReturnTrue() {
     		MyBinarySearchTree<Integer> myValueTree=new MyBinarySearchTree<Integer>();
     		Integer firstNumber=56,secondNumber=30,thirdNumber=70,fourthNumber=40;
         	myValueTree.addToTree(firstNumber);
