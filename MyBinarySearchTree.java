@@ -52,13 +52,33 @@ public class MyBinarySearchTree <K extends Comparable<K>>{
 			this.addToTree(key);
 		}
 	}
+	public boolean searchValue(K key) {
+		return this.searchUsingRecursion(this.myRoot,key);
+	}
+	
+	private boolean searchUsingRecursion(MyNode<K> livePosition, K key) {
+		if(livePosition==null) {
+			return false;
+		}else if(livePosition.key==key) {
+			return true;
+		}else if(key.compareTo(livePosition.key)<0) {
+			return searchUsingRecursion(livePosition.leftPart, key);
+		}else {
+			return searchUsingRecursion(livePosition.rightPart, key);
+		}
+	}
 	
     public static void main( String[] args ){
     	MyBinarySearchTree<Integer> myValueTree=new MyBinarySearchTree<Integer>();
     	Integer[] arrayKey=new Integer[] {56,30,70,22,40,60,95,11,65,3,63,67};
+    	Integer searchElement=63;
 		myValueTree.addingArray(arrayKey);
 		
     	log.info("Binary Tree of "+myValueTree.getSize()+" values Created");
+    	if(myValueTree.searchValue(searchElement))
+    			log.info(" 63 is there in the tree");
+    	else log.info(" 63 is NOT there in the tree");
+    	
     	
         
     }
