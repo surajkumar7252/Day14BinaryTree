@@ -47,14 +47,17 @@ public class MyBinarySearchTree <K extends Comparable<K>>{
 		if(ifLivePosition==null) return 0;
 		else return getSizeByRecursion(livePosition.leftPart)+getSizeByRecursion(livePosition.rightPart)+1;
 	}
+	public void addingArray(K[] arrayKey) {
+		for(K key:  arrayKey) {
+			this.addToTree(key);
+		}
+	}
 	
     public static void main( String[] args ){
     	MyBinarySearchTree<Integer> myValueTree=new MyBinarySearchTree<Integer>();
-    	Integer firstNumber=56,secondNumber=30,thirdNumber=70,fourthNumber=40;
-    	myValueTree.addToTree(firstNumber);
-    	myValueTree.addToTree(secondNumber);
-    	myValueTree.addToTree(thirdNumber);
-    	myValueTree.addToTree(fourthNumber);
+    	Integer[] arrayKey=new Integer[] {56,30,70,22,40,60,95,11,65,3,63,67};
+		myValueTree.addingArray(arrayKey);
+		
     	log.info("Binary Tree of "+myValueTree.getSize()+" values Created");
     	
         
